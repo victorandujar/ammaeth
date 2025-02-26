@@ -2,6 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "PPModelPlastic";
+  src: url("/fonts/PPModel/PPModelPlastic-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PPModelPlasticLine";
+  src: url("/fonts/PPModel/PPModelPlasticLine-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PPModelPlastic";
+  src: url("/fonts/PPModel/PPModelPlastic-Light.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PPValve";
+  src: url("/fonts/PPValve/PPValve-PlainExtrabold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PPValve";
+  src: url("/fonts/PPValve/PPValve-PlainMedium.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "PPValve";
+  src: url("/fonts/PPValve/PPValve-PlainExtralight.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
 :root {
   --main-color: #888aff;
   --primary-color: #6bcbb8;
@@ -17,8 +59,9 @@
   --font-MS: 0.875rem;
   --font-MSS: 0.8rem;
   --font-S: 0.7rem;
-  --font-montserrat-regular: "Montserrat Regular", sans-serif;
-  --font-montserrat-bold: "Montserrat Bold", sans-serif;
+  --font-ppvalve: "PPValve", sans-serif;
+  --font-ppmodel: "PPModelPlastic", sans-serif;
+  --font-ppmodel-line: "PPModelPlasticLine", sans-serif;
 }
 
 *,
@@ -30,7 +73,7 @@
 body {
   background: var(--background-color);
   color: var(--light);
-  font-family: var(--font-montserrat-regular);
+  font-family: var(--font-ppmodel);
   z-index: 0;
   margin: 0;
   min-height: 100vh;
