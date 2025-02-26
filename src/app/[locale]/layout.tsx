@@ -3,6 +3,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getMessages } from "../helpers/getMessages";
+import { store } from "../store/store";
+import StoreProvider from "../store/StoreProvider";
 
 export const metadata: Metadata = {
   title: "Ammaëth",
@@ -24,7 +26,7 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className={`antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          <StoreProvider store={store}>{children}</StoreProvider>
         </NextIntlClientProvider>
       </body>
     </html>
