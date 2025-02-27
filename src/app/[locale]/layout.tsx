@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { getMessages } from "../helpers/getMessages";
 import { store } from "../store/store";
 import StoreProvider from "../store/StoreProvider";
+import Layout from "../ui/shared/components/Layout/Layout";
 
 export const metadata: Metadata = {
   title: "Ammaëth",
@@ -26,7 +27,9 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className={`antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <StoreProvider store={store}>{children}</StoreProvider>
+          <StoreProvider store={store}>
+            <Layout>{children}</Layout>
+          </StoreProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1,1 +1,12 @@
-{}
+{
+  "Landing": {
+    "options": "options",
+    "resonance": "resonance",
+    "presence": "presence"
+  },
+  "OptionsMenu": {
+    "soul": "soul",
+    "essence": "essence",
+    "manifestation": "manifestation"
+  }
+}
