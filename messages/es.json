@@ -1,1 +1,12 @@
-{}
+{
+  "Landing": {
+    "options": "opciones",
+    "resonance": "resonancia",
+    "presence": "presencia"
+  },
+  "OptionsMenu": {
+    "soul": "alma",
+    "essence": "esencia",
+    "manifestation": "manifestacion"
+  }
+}
