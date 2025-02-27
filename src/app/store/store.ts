@@ -6,8 +6,13 @@ import {
   combineReducers,
   configureStore,
 } from "@reduxjs/toolkit";
+import { navigationReducer } from "./features/navigation/navigation";
+import { uiReducer } from "./features/ui/ui";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  navigation: navigationReducer,
+  ui: uiReducer,
+});
 
 export const setupStore = (preloadedState?: Partial<RootState>) => {
   return configureStore({
