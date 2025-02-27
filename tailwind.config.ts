@@ -12,6 +12,11 @@ const config: Config = {
         secondary: "#005d63",
         tertiary: "#ff8958",
       },
+      fontFamily: {
+        ppModelPlastic: "var(--font-ppModel)",
+        ppModelLine: "var(--font-ppModel-line)",
+        ppValve: "var(--font-ppValve)",
+      },
       fontSize: {
         xxl: "var(--font-XXL)",
         xl: "var(--font-XL)",
@@ -20,6 +25,9 @@ const config: Config = {
         s: "var(--font-S)",
         ms: "var(--font-MS)",
         mss: "var(--font-MSS)",
+      },
+      boxShadow: {
+        "inner-lg": "inset 0 0 15px 10px rgba(0, 0, 0, 0.3)",
       },
     },
   },
