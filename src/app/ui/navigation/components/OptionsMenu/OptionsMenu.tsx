@@ -87,7 +87,7 @@ const OptionsMenu: React.FC<OptionsMenuProps> = ({ isOpen }) => {
           <button
             onClick={() => handleLanguageChange(option.value)}
             key={option.label}
-            className={`flex items-center`}
+            className="flex items-center"
           >
             <span
               className={`${selected === option.value ? "text-primary" : ""}`}

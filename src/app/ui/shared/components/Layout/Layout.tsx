@@ -1,9 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { usePathname, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { RootState } from "@/app/store/store";
 import {
   updateScrollProgressActionCreator,
@@ -11,14 +11,22 @@ import {
   setGalaxyStateActionCreator,
 } from "@/app/store/features/ui/uiSlice";
 import routes from "../../utils/routes";
+import Header from "../Header/Header";
+import OptionsMenu from "@/app/ui/navigation/components/OptionsMenu/OptionsMenu";
+import { useAppSelector } from "@/app/store/hooks";
+import useUi from "../../hooks/useUi";
 
 const SCROLL_STEP = 0.1;
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const pathname = usePathname();
+  const { locale } = useParams();
   const dispatch = useDispatch();
-  const { scrollProgress, isInGalaxy } = useSelector(
+  const { openNavigationMenu, closeNavigationMenu, isNavigationMenuOpen } =
+    useUi();
+
+  const { scrollProgress, isInGalaxy } = useAppSelector(
     (state: RootState) => state.ui,
   );
 
@@ -41,6 +49,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     [scrollProgress, isInGalaxy, dispatch, router],
   );
 
+  const handleOutsideClick = (event: React.MouseEvent) => {
+    if (
+      isNavigationMenuOpen &&
+      !(event.target as HTMLElement).closest(".menu-container")
+    ) {
+      closeNavigationMenu();
+    }
+  };
+
   useEffect(() => {
     const wheelHandler = (event: WheelEvent) => {
       event.preventDefault();
@@ -52,7 +69,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   }, [handleScroll]);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div
+      className="relative h-screen w-full overflow-hidden"
+      onClick={handleOutsideClick}
+    >
       <AnimatePresence mode="wait">
         <motion.div
           key={pathname}
@@ -65,6 +85,22 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             dispatch(setTransitionStateActionCreator(false))
           }
         >
+          {pathname !== `/${locale}` && (
+            <>
+              <Header />
+              <div
+                className="absolute top-10 right-0 md:right-4 z-20 menu-container"
+                onMouseEnter={openNavigationMenu}
+                onMouseLeave={closeNavigationMenu}
+              >
+                <AnimatePresence>
+                  {isNavigationMenuOpen && (
+                    <OptionsMenu isOpen={isNavigationMenuOpen} />
+                  )}
+                </AnimatePresence>
+              </div>
+            </>
+          )}
           {children}
         </motion.div>
       </AnimatePresence>
