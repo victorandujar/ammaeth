@@ -71,7 +71,7 @@ const OptionsMenu: React.FC<OptionsMenuProps> = ({ isOpen }) => {
 
   return (
     <motion.ul
-      className="bg-gradient-to-b from-transparent to-primary/20 backdrop-blur-md flex flex-col justify-end items-end w-48 drop-shadow-2xl z-10 p-5 rounded-br-2xl rounded-bl-2xl font-ppValve overflow-hidden text-ms"
+      className="bg-gradient-to-b from-transparent to-white/20 backdrop-blur-xl flex flex-col justify-end items-end w-48 shadow-4xl z-10 p-5 rounded-br-lg rounded-bl-lg font-ppValve overflow-hidden text-ms"
       variants={menuVariants}
       initial="closed"
       animate={isOpen ? "open" : "closed"}
