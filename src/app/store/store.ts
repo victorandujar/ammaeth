@@ -6,8 +6,8 @@ import {
   combineReducers,
   configureStore,
 } from "@reduxjs/toolkit";
-import { navigationReducer } from "./features/navigation/navigation";
-import { uiReducer } from "./features/ui/ui";
+import { navigationReducer } from "./features/navigation/navigationSlice";
+import { uiReducer } from "./features/ui/uiSlice";
 
 const rootReducer = combineReducers({
   navigation: navigationReducer,

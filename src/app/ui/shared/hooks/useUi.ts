@@ -1,4 +1,4 @@
-import { toggleMenuOpenActionCreator } from "@/app/store/features/ui/ui";
+import { toggleMenuOpenActionCreator } from "@/app/store/features/ui/uiSlice";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import { RootState } from "@/app/store/store";
 

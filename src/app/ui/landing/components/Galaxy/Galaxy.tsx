@@ -3,7 +3,9 @@
 import { useRef, useMemo } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
+import Fireball from "../FireBall/FireBall";
 
+// Interfaces
 interface GalaxyData {
   positions: Float32Array;
   colors: Float32Array;
@@ -28,7 +30,8 @@ function generateGalaxy(
   const colors = new Float32Array(count * 3);
   const sizes = new Float32Array(count);
 
-  const colorCore = new THREE.Color("#fff1e0");
+  const colorCore = new THREE.Color("#ffd700");
+  const colorMid = new THREE.Color("#ff6b00");
   const colorEdge = new THREE.Color("#4973a8");
 
   Array.from({ length: count }, (_, i) => {
@@ -46,10 +49,26 @@ function generateGalaxy(
 
     positions.set([x, y, z], i * 3);
 
-    const mixedColor = colorCore.clone().lerp(colorEdge, distance / radius);
-    colors.set([mixedColor.r, mixedColor.g, mixedColor.b], i * 3);
+    let mixedColor;
+    if (distance < radius * 0.1) {
+      mixedColor = colorCore
+        .clone()
+        .lerp(colorMid, Math.pow(distance / (radius * 0.1), 2));
+      sizes[i] = Math.random() * 0.8 + 0.5;
+    } else if (distance < radius * 0.3) {
+      mixedColor = colorMid
+        .clone()
+        .lerp(colorEdge, (distance - radius * 0.1) / (radius * 0.2));
+      sizes[i] = Math.random() * 0.4 + 0.2;
+    } else {
+      mixedColor = colorEdge.clone();
+      sizes[i] = Math.random() * 0.25 + 0.1;
+    }
 
-    sizes[i] = Math.random() * 0.25 + 0.1;
+    const brightness = 0.8 + Math.random() * 0.2;
+    mixedColor.multiplyScalar(brightness);
+
+    colors.set([mixedColor.r, mixedColor.g, mixedColor.b], i * 3);
   });
 
   return { positions, colors, sizes };
@@ -161,6 +180,8 @@ const Galaxy: React.FC = () => {
           blending={THREE.AdditiveBlending}
         />
       </points>
+
+      <Fireball position={[0, 0, 0]} scale={[4, 4, 4]} />
     </>
   );
 };
