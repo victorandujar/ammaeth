@@ -38,15 +38,21 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         scrollProgress + (deltaY > 0 ? SCROLL_STEP : -SCROLL_STEP);
       dispatch(updateScrollProgressActionCreator(newProgress));
 
-      if (newProgress >= 1 && !isInGalaxy) {
-        dispatch(setGalaxyStateActionCreator(true));
-        router.push(routes.soul);
-      } else if (newProgress <= 0 && isInGalaxy) {
-        dispatch(setGalaxyStateActionCreator(false));
-        router.push("/");
+      // Lógica de navegación entre páginas
+      if (newProgress >= 1) {
+        if (pathname === `/${locale}`) {
+          dispatch(setGalaxyStateActionCreator(true));
+          router.push(routes.soul);
+        }
+        // Aquí puedes añadir más condiciones para otras páginas
+      } else if (newProgress <= 0) {
+        if (pathname === routes.soul) {
+          dispatch(setGalaxyStateActionCreator(false));
+          router.push(`/${locale}`);
+        }
       }
     },
-    [scrollProgress, isInGalaxy, dispatch, router],
+    [scrollProgress, dispatch, router, pathname, locale],
   );
 
   const handleOutsideClick = (event: React.MouseEvent) => {
@@ -60,27 +66,37 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const wheelHandler = (event: WheelEvent) => {
-      event.preventDefault();
-      handleScroll(event.deltaY);
+      const { scrollTop, scrollHeight, clientHeight } =
+        document.documentElement;
+      const atTop = scrollTop === 0;
+      const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+
+      if (pathname === `/${locale}`) {
+        event.preventDefault();
+        handleScroll(event.deltaY);
+      } else if (
+        (atTop && event.deltaY < 0) ||
+        (atBottom && event.deltaY > 0)
+      ) {
+        event.preventDefault();
+        handleScroll(event.deltaY);
+      }
     };
 
     window.addEventListener("wheel", wheelHandler, { passive: false });
     return () => window.removeEventListener("wheel", wheelHandler);
-  }, [handleScroll]);
+  }, [handleScroll, locale, pathname]);
 
   return (
-    <div
-      className="relative h-screen w-full overflow-hidden"
-      onClick={handleOutsideClick}
-    >
+    <div className="relative w-full" onClick={handleOutsideClick}>
       <AnimatePresence mode="wait">
         <motion.div
           key={pathname}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="relative z-10 h-full w-full"
+          transition={{ duration: 1 }}
+          className="relative z-10 w-full"
           onAnimationComplete={() =>
             dispatch(setTransitionStateActionCreator(false))
           }

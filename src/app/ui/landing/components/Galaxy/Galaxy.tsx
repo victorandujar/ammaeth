@@ -5,7 +5,6 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import Fireball from "../FireBall/FireBall";
 
-// Interfaces
 interface GalaxyData {
   positions: Float32Array;
   colors: Float32Array;
@@ -111,10 +110,13 @@ const Galaxy: React.FC = () => {
   const galaxyRef = useRef<THREE.Points>(null!);
   const nebulaRef = useRef<THREE.Points>(null!);
 
-  const starTexture = useLoader(THREE.TextureLoader, "/star_sprite.png");
+  const starTexture = useLoader(
+    THREE.TextureLoader,
+    "/images/galaxy/star_sprite.png",
+  );
   const nebulosaTexture = useLoader(
     THREE.TextureLoader,
-    "/nebulosa_texture_improved.png",
+    "/images/galaxy/nebulosa_texture_improved.png",
   );
 
   const { positions, colors, sizes } = useMemo(() => generateGalaxy(), []);
