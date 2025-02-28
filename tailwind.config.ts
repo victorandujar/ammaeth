@@ -10,7 +10,7 @@ const config: Config = {
         mainColor: "#888aff",
         primary: "#00FF8B",
         secondary: "#005d63",
-        tertiary: "#ff8958",
+        tertiary: "#0057FF",
       },
       fontFamily: {
         ppModelPlastic: "var(--font-ppmodel)",

@@ -1,6 +1,6 @@
 import { useAppDispatch } from "@/app/store/hooks";
 import navigationOptions from "../utils/navigationOptions";
-import { loadNavOptionsActionCreator } from "@/app/store/features/navigation/navigation";
+import { loadNavOptionsActionCreator } from "@/app/store/features/navigation/navigationSlice";
 import { useCallback } from "react";
 
 const useNavigation = () => {
