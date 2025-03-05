@@ -8,10 +8,12 @@ import {
 } from "@reduxjs/toolkit";
 import { navigationReducer } from "./features/navigation/navigationSlice";
 import { uiReducer } from "./features/ui/uiSlice";
+import { servicesReducer } from "./features/services/servicesSlice";
 
 const rootReducer = combineReducers({
   navigation: navigationReducer,
   ui: uiReducer,
+  services: servicesReducer,
 });
 
 export const setupStore = (preloadedState?: Partial<RootState>) => {
