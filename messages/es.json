@@ -8,5 +8,37 @@
     "soul": "alma",
     "essence": "esencia",
     "manifestation": "manifestacion"
+  },
+  "Services": {
+    "design": {
+      "subtitle": "transformando ideas en experiencias digitales fluidas",
+      "content": {
+        "first": "diseño interfaces que resuenan con el usuario y la identidad de la marca.",
+        "second": "creo flujos de navegación intuitivos y optimizados para la conversión.",
+        "third": "uso principios de usabilidad, accesibilidad y estética moderna.",
+        "fourth": "implemento sistemas de diseño escalables y flexibles."
+      },
+      "lower_text": "cada interfaz es más que diseño: es una experiencia viva. construyo sistemas visuales que conectan intuición con funcionalidad, asegurando que cada interacción fluya de forma orgánica."
+    },
+    "devlopment": {
+      "subtitle": "código que fluye, interfaces que responden",
+      "content": {
+        "first": "creación de componentes reutilizables y accesibles.",
+        "second": "optimización del rendimiento con ssr, isr y static generation.",
+        "third": "desarrollo en react.js, next.js y vite para una performance óptima.",
+        "fourth": "conectividad con bases de datos y testing."
+      },
+      "lower_text": "la web no es solo una estructura, es un ecosistema en movimiento. desarrollo experiencias digitales rápidas, interactivas y escalables, garantizando que el diseño cobre vida con un código limpio y optimizado."
+    },
+    "optimization": {
+      "subtitle": "más velocidad, más conversión, más impacto",
+      "content": {
+        "first": "reduzco tiempos de respuesta con caching, lazy loading y estrategias de ssr.",
+        "second": "implemento seo técnico para mejorar visibilidad y ranking en buscadores.",
+        "third": "mejoro la velocidad de carga y el rendimiento con optimización avanzada.",
+        "fourth": "aseguro accesibilidad con prácticas wcag y validación UX."
+      },
+      "lower_text": "un sitio web bien diseñado es solo el principio. la optimización garantiza que la experiencia sea rápida, fluida y efectiva en cada interacción."
+    }
   }
 }
