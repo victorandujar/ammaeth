@@ -9,7 +9,7 @@ const config: Config = {
         foreground: "var(--foreground)",
         mainColor: "#888aff",
         primary: "#00FF8B",
-        secondary: "#005d63",
+        secondary: "#FFD700",
         tertiary: "#0057FF",
       },
       fontFamily: {

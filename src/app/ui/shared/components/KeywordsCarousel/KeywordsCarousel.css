@@ -1,0 +1,42 @@
+.carousel-wrapper {
+  width: 200px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-container {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 100px;
+  animation: scrollVertical 30s linear infinite;
+  will-change: transform;
+  white-space: nowrap;
+}
+
+.carousel-item {
+  font-weight: 200;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@keyframes scrollVertical {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-30%);
+  }
+}

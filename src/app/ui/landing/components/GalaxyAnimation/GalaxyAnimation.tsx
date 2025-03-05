@@ -17,7 +17,7 @@ const GalaxyAnimation: React.FC<GalaxyAnimationProps> = ({ camera }) => {
 
   useFrame(({ camera }) => {
     const startPosition = new Vector3(0, 0, 150);
-    const endPosition = new Vector3(0, 0, 1);
+    const endPosition = new Vector3(0, 0, 1.1);
 
     const lerpFactor = scrollProgress > 0.5 ? 0.1 : 0.05;
 

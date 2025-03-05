@@ -1,84 +1,67 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { usePathname, useParams } from "next/navigation";
+import Header from "../Header/Header";
+import OptionsMenu from "@/app/ui/shared/components/OptionsMenu/OptionsMenu";
+import { useAppSelector } from "@/app/store/hooks";
+import useUi from "../../hooks/useUi";
 import { RootState } from "@/app/store/store";
-import {
-  updateScrollProgressActionCreator,
-  setTransitionStateActionCreator,
-  setGalaxyStateActionCreator,
-} from "@/app/store/features/ui/uiSlice";
-import routes from "../../utils/routes";
-
-const SCROLL_STEP = 0.1;
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const router = useRouter();
   const pathname = usePathname();
-  const dispatch = useDispatch();
-  const { scrollProgress, isInGalaxy } = useSelector(
-    (state: RootState) => state.ui,
-  );
-
-  const handleScroll = useCallback(
-    (deltaY: number) => {
-      dispatch(setTransitionStateActionCreator(true));
-
-      const newProgress =
-        scrollProgress + (deltaY > 0 ? SCROLL_STEP : -SCROLL_STEP);
-      dispatch(updateScrollProgressActionCreator(newProgress));
-
-      if (newProgress >= 1 && !isInGalaxy) {
-        dispatch(setGalaxyStateActionCreator(true));
-        router.push(routes.soul);
-      } else if (newProgress <= 0 && isInGalaxy) {
-        dispatch(setGalaxyStateActionCreator(false));
-        router.push("/");
-      }
-    },
-    [scrollProgress, isInGalaxy, dispatch, router],
-  );
-
-  useEffect(() => {
-    const wheelHandler = (event: WheelEvent) => {
-      event.preventDefault();
-      handleScroll(event.deltaY);
-    };
-
-    window.addEventListener("wheel", wheelHandler, { passive: false });
-    return () => window.removeEventListener("wheel", wheelHandler);
-  }, [handleScroll]);
+  const { locale } = useParams();
+  const { openNavigationMenu, closeNavigationMenu, isNavigationMenuOpen } =
+    useUi();
+  const { isInGalaxy } = useAppSelector((state: RootState) => state.ui);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      <AnimatePresence mode="wait">
+    <div
+      className="relative w-full"
+      onClick={(element) => {
+        const target = element.target as HTMLElement;
+        if (isNavigationMenuOpen && !target.closest(".menu-container")) {
+          closeNavigationMenu();
+        }
+      }}
+    >
+      <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={pathname}
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0.1 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="relative z-10 h-full w-full"
-          onAnimationComplete={() =>
-            dispatch(setTransitionStateActionCreator(false))
-          }
+          transition={{ duration: 2 }}
+          className="z-10 w-full"
         >
+          {pathname !== `/${locale}` && (
+            <>
+              <Header />
+              <div
+                className="fixed top-18 right-0 md:right-4 z-50 menu-container"
+                onMouseEnter={openNavigationMenu}
+                onMouseLeave={closeNavigationMenu}
+              >
+                <AnimatePresence>
+                  {isNavigationMenuOpen && (
+                    <OptionsMenu isOpen={isNavigationMenuOpen} />
+                  )}
+                </AnimatePresence>
+              </div>
+            </>
+          )}
           {children}
         </motion.div>
       </AnimatePresence>
 
-      <AnimatePresence>
-        {isInGalaxy && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.8 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0"
-          />
-        )}
-      </AnimatePresence>
+      {isInGalaxy && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.8 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="fixed inset-0 bg-black"
+        />
+      )}
     </div>
   );
 };

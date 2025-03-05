@@ -8,5 +8,37 @@
     "soul": "soul",
     "essence": "essence",
     "manifestation": "manifestation"
+  },
+  "Services": {
+    "design": {
+      "subtitle": "transforming ideas into seamless digital experiences",
+      "content": {
+        "first": "design interfaces that resonate with the user and the brand's identity.",
+        "second": "create intuitive navigation flows optimized for conversion.",
+        "third": "apply principles of usability, accessibility, and modern aesthetics.",
+        "fourth": "implement scalable and flexible design systems."
+      },
+      "lower_text": "every interface is more than just design: it's a living experience. i build visual systems that connect intuition with functionality, ensuring every interaction flows organically."
+    },
+    "development": {
+      "subtitle": "code that flows, interfaces that respond",
+      "content": {
+        "first": "creation of reusable and accessible components.",
+        "second": "performance optimization with SSR, ISR, and static generation.",
+        "third": "development in React.js, Next.js, and Vite for optimal performance.",
+        "fourth": "database connectivity and testing."
+      },
+      "lower_text": "the web isn't just a structure—it's an ecosystem in motion. i develop fast, interactive, and scalable digital experiences, ensuring the design comes to life with clean, optimized code."
+    },
+    "optimization": {
+      "subtitle": "more speed, more conversion, more impact",
+      "content": {
+        "first": "reduce response times with caching, lazy loading, and SSR strategies.",
+        "second": "implement technical SEO to improve visibility and search engine ranking.",
+        "third": "enhance load speed and performance with advanced optimization.",
+        "fourth": "ensure accessibility with WCAG practices and UX validation."
+      },
+      "lower_text": "a well-designed website is just the beginning. optimization ensures the experience is fast, smooth, and effective in every interaction."
+    }
   }
 }
