@@ -13,27 +13,27 @@ const SoulAboutSection: React.FC = () => {
           <Planet />
         </section>
         <span className="text-s text-right w-3/4">
-          Apasionado del crecimiento personal y de crear desde el alma, veo el
-          diseño,y la tecnología como caminos para conectar lo tangible con lo
-          invisible. Más allá del código, mi trabajo es dar forma a ideas con
-          significado, traduciendo lo abstracto en experiencias que resuenen.
-          Exploro el branding y la conceptualización como un tejido vivo, donde
-          cada proyecto es un reflejo de propósito y visión.
+          Me mueven la innovación y la armonía, el equilibrio entre
+          funcionalidad y emoción. Trabajo desde la conexión con mi esencia
+          creadora, buscando no solo construir, sino transformar, aportar valor
+          y dar significado a cada detalle.
         </span>
       </article>
       <div className="overflow-hidden">
         <KeywordCarousel keywords={keywords} />
       </div>
       <section className="w-1/3 relative flex flex-col gap-10 font-thin">
-        <span>front end developer & ux/ui</span>
+        <span className="font-ppModelPlastic">front end developer & ux/ui</span>
         <div className="w-4/5">
           <span className="text-l">
-            Apasionado del crecimiento personal y de crear desde el alma, veo el
-            diseño,y la tecnología como caminos para conectar lo tangible con lo
-            invisible. Más allá del código, mi trabajo es dar forma a ideas con
-            significado, traduciendo lo abstracto en experiencias que resuenen.
-            Exploro el branding y la conceptualización como un tejido vivo,
-            donde cada proyecto es un reflejo de propósito y visión.
+            Apasionado del crecimiento personal y de la creación desde el alma,
+            encuentro en la tecnología y el diseño un espacio para traducir lo
+            invisible en experiencias significativas. Mi enfoque va más allá de
+            lo técnico. Me impulsa la curiosidad por comprender, por ir más
+            profundo, por explorar nuevas formas de expresión que trasciendan lo
+            convencional. Cada proyecto es un reflejo de exploración y
+            propósito, un desafío donde fusiono creatividad, lógica e intuición
+            para dar vida a soluciones que resuenen.
           </span>
         </div>
         <div className="absolute -bottom-10 -z-10 flex flex-col items-end gap-10 w-full">

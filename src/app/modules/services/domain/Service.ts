@@ -1,4 +1,5 @@
 export interface Service {
+  id: number;
   title: string;
   susbtitle: string;
   content: ServiceContent[];
@@ -8,4 +9,8 @@ export interface Service {
 export interface ServiceContent {
   id: number;
   text: string;
+}
+
+export interface ServiceSlice {
+  services: Service[];
 }

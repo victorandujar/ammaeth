@@ -4,6 +4,7 @@ import { useRef, useMemo } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import Fireball from "../FireBall/FireBall";
+import SunSphere from "@/app/ui/soul/components/SunSphere/SunSphere";
 
 interface GalaxyData {
   positions: Float32Array;
@@ -183,7 +184,7 @@ const Galaxy: React.FC = () => {
         />
       </points>
 
-      <Fireball position={[0, 0, 0]} scale={[4, 4, 4]} />
+      <SunSphere />
     </>
   );
 };

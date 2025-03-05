@@ -3,7 +3,7 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
-import Sun from "../Planet/Planet";
+import Sun from "../SunWithBg/SunWithBg";
 
 export default function SolarScene() {
   return (
@@ -24,7 +24,6 @@ export default function SolarScene() {
         autoRotateSpeed={0.5}
       />
 
-      {/* Fondo estelar */}
       <Stars
         radius={100}
         depth={50}
