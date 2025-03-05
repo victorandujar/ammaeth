@@ -7,6 +7,7 @@ import { useParams, usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import useNavigation from "../../hooks/useNavigation";
 import routes from "../../utils/routes";
+import Link from "next/link";
 
 interface OptionsMenuProps {
   isOpen: boolean;
@@ -72,7 +73,7 @@ const OptionsMenu: React.FC<OptionsMenuProps> = ({ isOpen }) => {
 
   return (
     <motion.ul
-      className="bg-gradient-to-b from-transparent to-white/20 backdrop-blur-xl flex flex-col justify-end items-end w-48 shadow-4xl z-10 p-5 rounded-br-lg rounded-bl-lg font-ppValve overflow-hidden text-ms"
+      className="bg-gradient-to-b from-transparent to-white/30 backdrop-blur-xl flex flex-col justify-end items-end w-48 shadow-4xl z-10 p-5 rounded-br-lg rounded-bl-lg font-ppValve overflow-hidden text-ms"
       variants={menuVariants}
       initial="closed"
       animate={isOpen ? "open" : "closed"}
@@ -83,7 +84,7 @@ const OptionsMenu: React.FC<OptionsMenuProps> = ({ isOpen }) => {
           key={option.id}
           className={`font-thin tracking-wider ${path.includes(option.text) ? "border-b border-white" : ""}`}
         >
-          {option.text}
+          <Link href={option.link}>{option.text}</Link>
         </li>
       ))}
       <li className="flex gap-2">

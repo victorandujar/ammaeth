@@ -37,7 +37,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <>
               <Header />
               <div
-                className="fixed top-20 right-0 md:right-4 z-50 menu-container"
+                className="fixed top-18 right-0 md:right-4 z-50 menu-container"
                 onMouseEnter={openNavigationMenu}
                 onMouseLeave={closeNavigationMenu}
               >
