@@ -2,18 +2,76 @@
 
 import { AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { useRef } from "react";
+import { useRef, useCallback, useEffect } from "react";
 import { FaRegCopyright } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { RootState } from "@/app/store/store";
+import {
+  updateScrollProgressActionCreator,
+  setGalaxyStateActionCreator,
+} from "@/app/store/features/ui/uiSlice";
+import { useAppSelector } from "@/app/store/hooks";
 import GalaxyScene from "../ui/landing/components/GalaxyScene/GalaxyScene";
-import OptionsMenu from "../ui/navigation/components/OptionsMenu/OptionsMenu";
+import OptionsMenu from "../ui/shared/components/OptionsMenu/OptionsMenu";
 import LineText from "../ui/shared/components/LineText/LineText";
 import useUi from "../ui/shared/hooks/useUi";
+import routes from "../ui/shared/utils/routes";
+import Image from "next/image";
+
+const SCROLL_STEP = 0.05;
+const ANIMATION_DURATION = 1200;
 
 const HomePage: React.FC = () => {
   const { openNavigationMenu, closeNavigationMenu, isNavigationMenuOpen } =
     useUi();
   const t = useTranslations("Landing");
   const containerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const { scrollProgress } = useAppSelector((state: RootState) => state.ui);
+
+  const triggerNavigation = useCallback(() => {
+    dispatch(setGalaxyStateActionCreator(true));
+    setTimeout(() => {
+      router.push(routes.soul);
+    }, ANIMATION_DURATION);
+  }, [dispatch, router]);
+
+  const handleScroll = useCallback(
+    (deltaY: number) => {
+      const newProgress = Math.min(
+        Math.max(scrollProgress + (deltaY > 0 ? SCROLL_STEP : -SCROLL_STEP), 0),
+        1,
+      );
+      dispatch(updateScrollProgressActionCreator(newProgress));
+
+      if (newProgress >= 1 && deltaY > 0) {
+        triggerNavigation();
+      }
+    },
+    [scrollProgress, dispatch, triggerNavigation],
+  );
+
+  useEffect(() => {
+    const wheelHandler = (event: WheelEvent) => {
+      const { scrollTop, scrollHeight, clientHeight } =
+        document.documentElement;
+      const atTop = scrollTop === 0;
+      const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+
+      if (atTop && event.deltaY < 0) {
+        event.preventDefault();
+        handleScroll(event.deltaY);
+      } else if (atBottom && event.deltaY > 0) {
+        event.preventDefault();
+        handleScroll(event.deltaY);
+      }
+    };
+
+    window.addEventListener("wheel", wheelHandler, { passive: false });
+    return () => window.removeEventListener("wheel", wheelHandler);
+  }, [handleScroll]);
 
   const toggleNavigationMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -43,9 +101,12 @@ const HomePage: React.FC = () => {
       <main className="flex flex-col justify-center items-center h-screen snap-start">
         <section className="border-white/30 border-[0.5px] h-[90%] w-[90%] sm:h-[85%] sm:w-[85%] md:h-[80%] md:w-[80%] rounded-3xl bg-gradient-to-b from-background to-white/20 relative shadow-inner-lg overflow-hidden">
           <div className="pt-4 px-4 sm:pt-6 sm:px-6 md:pt-7 md:px-8 w-full flex justify-between absolute font-thin z-10">
-            <span className="text-2xl sm:text-3xl md:text-4xl font-light">
-              ammaëth
-            </span>
+            <Image
+              src={"/icons/ae-logo.svg"}
+              alt="ammaeth logo"
+              width={60}
+              height={60}
+            />
             <div className="relative">
               <button
                 className="uppercase text-sm sm:text-base md:text-base"
