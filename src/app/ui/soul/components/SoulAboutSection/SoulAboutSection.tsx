@@ -3,7 +3,7 @@ import keywords from "@/app/ui/shared/components/KeywordsCarousel/utils/keywords
 import LineText from "@/app/ui/shared/components/LineText/LineText";
 import colors from "@/app/ui/shared/utils/colors";
 import Image from "next/image";
-import Planet from "../PlanetScene/PlanetScene";
+import Planet from "../../../shared/components/PlanetScene/PlanetScene";
 
 const SoulAboutSection: React.FC = () => {
   return (

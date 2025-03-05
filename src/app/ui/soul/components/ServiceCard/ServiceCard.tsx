@@ -1,6 +1,6 @@
 "use client";
 
-import { Service } from "@/app/modules/services/domain/Service";
+import { Service } from "@/app/modules/soul/domain/Service";
 import { useTranslations } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Service, ServiceSlice } from "@/app/modules/services/domain/Service";
+import { Service, ServiceSlice } from "@/app/modules/soul/domain/Service";
 
 const initialState: ServiceSlice = {
   services: [],

@@ -2,10 +2,10 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
-import ServiceCard from "@/app/ui/services/components/ServiceCard/ServiceCard";
+import ServiceCard from "@/app/ui/soul/components/ServiceCard/ServiceCard";
 import LineText from "@/app/ui/shared/components/LineText/LineText";
 import SoulAboutSection from "@/app/ui/soul/components/SoulAboutSection/SoulAboutSection";
-import useServices from "@/app/ui/services/hooks/useServices";
+import useServices from "@/app/ui/soul/hooks/useServices";
 import { useAppSelector } from "@/app/store/hooks";
 
 const SoulPage: React.FC = () => {
