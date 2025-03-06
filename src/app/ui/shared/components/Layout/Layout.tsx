@@ -59,7 +59,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           animate={{ opacity: 0.8 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 bg-black"
+          className="fixed inset-0"
         />
       )}
     </div>

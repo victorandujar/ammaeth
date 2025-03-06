@@ -109,13 +109,14 @@ const HomePage: React.FC = () => {
             />
             <div className="relative">
               <button
-                className="uppercase text-sm sm:text-base md:text-base"
+                className="uppercase text-sm sm:text-base md:text-base font-thin"
                 onMouseEnter={openNavigationMenu}
                 onMouseLeave={closeNavigationMenu}
                 onClick={toggleNavigationMenu}
               >
                 {t("options")}
               </button>
+
               <AnimatePresence>
                 {isNavigationMenuOpen && (
                   <div
@@ -123,7 +124,10 @@ const HomePage: React.FC = () => {
                     onMouseEnter={openNavigationMenu}
                     onMouseLeave={closeNavigationMenu}
                   >
-                    <OptionsMenu isOpen={isNavigationMenuOpen} />
+                    <OptionsMenu
+                      isOpen={isNavigationMenuOpen}
+                      closeNavigationMenu={closeNavigationMenu}
+                    />
                   </div>
                 )}
               </AnimatePresence>

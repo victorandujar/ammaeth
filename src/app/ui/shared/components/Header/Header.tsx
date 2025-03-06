@@ -1,16 +1,18 @@
-import colors from "../../utils/colors";
 import LineText from "../LineText/LineText";
 import useUi from "../../hooks/useUi";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import routes from "../../utils/routes";
 import Image from "next/image";
+import { useAppSelector } from "@/app/store/hooks";
 
 const Header: React.FC = () => {
   const t = useTranslations("Landing");
 
   const { openNavigationMenu, closeNavigationMenu, isNavigationMenuOpen } =
     useUi();
+  const { headerColor, headerText } = useAppSelector((state) => state.ui);
+
   const toggleNavigationMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (isNavigationMenuOpen) {
@@ -31,7 +33,7 @@ const Header: React.FC = () => {
             height={60}
           />
         </Link>
-        <LineText text="soul" color={colors.secondary} />
+        <LineText text={headerText} color={headerColor} />
       </div>
       <button
         className="uppercase text-sm sm:text-base md:text-base z-20"

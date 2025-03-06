@@ -5,6 +5,8 @@ interface UiState {
   scrollProgress: number;
   isTransitioning: boolean;
   isInGalaxy: boolean;
+  headerText: string;
+  headerColor: string;
 }
 
 const initialState: UiState = {
@@ -12,6 +14,8 @@ const initialState: UiState = {
   scrollProgress: 0,
   isTransitioning: false,
   isInGalaxy: false,
+  headerText: "",
+  headerColor: "",
 };
 
 const uiSlice = createSlice({
@@ -35,6 +39,12 @@ const uiSlice = createSlice({
       state.isTransitioning = false;
       state.isInGalaxy = false;
     },
+    setHeaderText: (state, action: PayloadAction<string>) => {
+      state.headerText = action.payload;
+    },
+    setHeaderColor: (state, action: PayloadAction<string>) => {
+      state.headerColor = action.payload;
+    },
   },
 });
 
@@ -44,5 +54,7 @@ export const {
   setGalaxyState: setGalaxyStateActionCreator,
   resetNavigation: resetNavigationActionCreator,
   toggleMenuOpen: toggleMenuOpenActionCreator,
+  setHeaderText: setHeaderTextActionCreator,
+  setHeaderColor: setHeaderColorActionCreator,
 } = uiSlice.actions;
 export const uiReducer = uiSlice.reducer;
