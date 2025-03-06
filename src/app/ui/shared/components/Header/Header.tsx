@@ -36,7 +36,7 @@ const Header: React.FC = () => {
         <LineText text={headerText} color={headerColor} />
       </div>
       <button
-        className="uppercase text-sm sm:text-base md:text-base z-20"
+        className="uppercase text-sm sm:text-base md:text-mss z-20 font-light"
         onMouseEnter={openNavigationMenu}
         onMouseLeave={closeNavigationMenu}
         onClick={toggleNavigationMenu}
