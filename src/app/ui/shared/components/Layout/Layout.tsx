@@ -43,7 +43,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               >
                 <AnimatePresence>
                   {isNavigationMenuOpen && (
-                    <OptionsMenu isOpen={isNavigationMenuOpen} />
+                    <OptionsMenu
+                      isOpen={isNavigationMenuOpen}
+                      closeNavigationMenu={closeNavigationMenu}
+                    />
                   )}
                 </AnimatePresence>
               </div>

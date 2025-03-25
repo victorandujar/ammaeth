@@ -12,19 +12,21 @@ import {
   setHeaderTextActionCreator,
 } from "@/app/store/features/ui/uiSlice";
 import colors from "@/app/ui/shared/utils/colors";
+import EssenceChromatic from "@/app/ui/essence/components/EssenceChromatic/EssenceChromatic";
+import { useTranslations } from "next-intl";
 
 const SoulPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
   const essenceTriggerRef = useRef<HTMLDivElement>(null);
-  const beyondTriggerRef = useRef<HTMLDivElement>(null);
 
   const [isEssenceFull, setIsEssenceFull] = useState(false);
-  const [isBeyondFull, setIsBeyondFull] = useState(false);
   const { loadServices } = useServices();
   const { services } = useAppSelector((state) => state.services);
   const dispatch = useAppDispatch();
+
+  const t = useTranslations("Soul");
 
   const { scrollYProgress: essenceScrollProgress } = useScroll({
     target: essenceTriggerRef,
@@ -42,35 +44,25 @@ const SoulPage: React.FC = () => {
   );
   const essenceOpacity = useTransform(essenceScrollProgress, [0, 1], [0, 1]);
 
-  const { scrollYProgress: beyondScrollProgress } = useScroll({
-    target: beyondTriggerRef,
-    offset: ["start end", "end end"],
-  });
-  const beyondY = useTransform(beyondScrollProgress, [0, 1], ["-100vh", "0vh"]);
-  const essenceY = useTransform(beyondScrollProgress, [0, 1], ["0vh", "100vh"]);
-  const beyondOpacity = useTransform(beyondScrollProgress, [0, 1], [0, 1]);
-
   const { scrollYProgress: textScrollProgress } = useScroll({
     target: textRef,
     offset: ["start end", "end center"],
   });
-  const y = useTransform(textScrollProgress, [0, 1], [300, 0]);
-  const scale = useTransform(textScrollProgress, [0, 1], [0.2, 1.2]);
-  const rotateX = useTransform(textScrollProgress, [0, 1], [90, 0]);
+  const y = useTransform(textScrollProgress, [0, 1], [150, 0]); // Reduced for mobile
+  const scale = useTransform(textScrollProgress, [0, 1], [0.5, 1]); // Adjusted for mobile
+  const rotateX = useTransform(textScrollProgress, [0, 1], [45, 0]); // Reduced for mobile
   const textOpacity = useTransform(textScrollProgress, [0, 1], [0, 1]);
 
   useEffect(() => {
     const unsubscribeEssence = essenceScrollProgress.on("change", (latest) => {
-      setIsEssenceFull(latest >= 0.7 && !isBeyondFull);
-    });
-    const unsubscribeBeyond = beyondScrollProgress.on("change", (latest) => {
-      setIsBeyondFull(latest >= 0.7);
+      if (window.innerWidth >= 1024) {
+        setIsEssenceFull(latest >= 0.7);
+      }
     });
     return () => {
       unsubscribeEssence();
-      unsubscribeBeyond();
     };
-  }, [essenceScrollProgress, beyondScrollProgress, isBeyondFull]);
+  }, [essenceScrollProgress]);
 
   useEffect(() => {
     loadServices();
@@ -78,10 +70,6 @@ const SoulPage: React.FC = () => {
 
   useEffect(() => {
     const headerConfig = {
-      beyondFull: {
-        color: "white",
-        text: "manifestation",
-      },
       essenceFull: {
         color: colors.primary,
         text: "essence",
@@ -92,83 +80,61 @@ const SoulPage: React.FC = () => {
       },
     };
 
-    const key = isBeyondFull
-      ? "beyondFull"
-      : isEssenceFull
-        ? "essenceFull"
-        : "default";
-
+    const key = isEssenceFull ? "essenceFull" : "default";
     const { color, text } = headerConfig[key];
     dispatch(setHeaderColorActionCreator(color));
     dispatch(setHeaderTextActionCreator(text));
-  }, [dispatch, isEssenceFull, isBeyondFull]);
+  }, [dispatch, isEssenceFull]);
 
   return (
     <div
       ref={pageRef}
-      className="relative w-full min-h-[300vh] overflow-x-hidden"
+      className="relative w-full min-h-screen overflow-x-hidden p-4 sm:p-5 lg:p-5 2xl:p-10"
     >
       <motion.div
         ref={containerRef}
         className="relative w-full min-h-screen z-10"
-        style={{ x: contentX }}
+        style={{ x: window.innerWidth >= 1024 ? contentX : 0 }}
       >
-        <main className="flex flex-col items-center gap-48 relative p-10 pt-20">
+        <main className="flex flex-col items-center gap-12 sm:gap-24 lg:gap-48 relative pt-10 sm:pt-12 2xl:pt-14">
           <SoulAboutSection />
 
           <motion.span
             ref={textRef}
-            className="text-7xl w-2/3 text-center"
+            className="text-2xl w-full text-center sm:text-4xl sm:w-4/5 lg:text-5xl lg:w-4/5 2xl:text-7xl 2xl:w-2/3"
             style={{ y, scale, rotateX, opacity: textOpacity }}
           >
-            flujo digital: donde diseño, código y optimización convergen
+            {t("services-title")}
           </motion.span>
 
-          <ul className="flex flex-col items-center gap-24">
+          <ul className="flex flex-col items-center gap-12 sm:gap-16 lg:gap-24">
             {services.map((service) => (
               <ServiceCard service={service} key={service.id} />
             ))}
           </ul>
 
-          <footer className="flex items-center w-full justify-end gap-80 font-thin text-s sm:text-base md:text-s">
-            <span>
-              [ Iniciar el Viaje ] / [ Explorar Posibilidades ] / [ Construir
-              Juntos ]
-            </span>
+          <footer className="flex flex-col items-center gap-4 w-full font-thin text-xs sm:flex-row sm:justify-end sm:gap-8 sm:text-base md:text-s">
+            <span className="text-center sm:text-left">{t("footer-text")}</span>
             <LineText text="ammaëth" />
           </footer>
 
           <div
             ref={essenceTriggerRef}
-            className="relative w-full h-[100vh] mt-0"
-          />
-
-          <div
-            ref={beyondTriggerRef}
-            className="relative w-full h-[100vh] mt-0"
+            className="relative w-full h-[100vh] mt-0 hidden lg:block"
           />
         </main>
       </motion.div>
 
       <motion.div
-        className="fixed top-0 left-0 w-full h-screen flex items-center justify-center z-20 bg-background"
+        className="fixed top-0 left-0 w-full h-screen hidden lg:flex justify-center z-20 bg-background px-10"
         style={{
           x: essenceX,
-          y: essenceY,
           opacity: essenceOpacity,
         }}
       >
-        <div className="text-8xl font-bold text-white">ESSENCE</div>
-      </motion.div>
-
-      <motion.div
-        className="fixed top-0 left-0 w-full h-screen flex items-center justify-center z-30 bg-background"
-        style={{
-          y: beyondY,
-          opacity: beyondOpacity,
-        }}
-      >
-        <div className="text-8xl font-bold text-white">BEYOND</div>
+        <div className="text-8xl font-bold text-white relative flex w-full justify-between lg:pt-24 2xl:pt-32">
+          <EssenceChromatic />
+        </div>
       </motion.div>
     </div>
   );
