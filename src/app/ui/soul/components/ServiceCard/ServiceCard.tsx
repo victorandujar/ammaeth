@@ -1,6 +1,6 @@
 "use client";
 
-import { Service } from "@/app/modules/services/domain/Service";
+import { Service } from "@/app/modules/soul/domain/Service";
 import { useTranslations } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -32,13 +32,15 @@ const ServiceCard: React.FC<Props> = ({ service }) => {
   return (
     <motion.article
       ref={cardRef}
-      className="flex flex-col gap-5 items-end bg-gradient-to-b from-transparent to-white/20 w-[90%] px-10 pb-10 rounded-lg font-light text-sm"
+      className="flex flex-col gap-5 items-end bg-gradient-to-b from-transparent to-white/20 w-[90%] px-10 pb-10 rounded-lg font-light text-xs lg:text-s 2xl:text-sm"
       variants={cardVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
-      <section className="flex flex-col items-end gap-2">
-        <h3 className="font-ppValve text-5xl font-semibold">{service.title}</h3>
+      <section className="flex flex-col md:items-end gap-2">
+        <h3 className="font-ppValve text-3xl lg:text-5xl font-semibold">
+          {service.title}
+        </h3>
         <h5>{t(service.susbtitle)}</h5>
       </section>
       <ul className="flex flex-col gap-8 items-start w-full">

@@ -1,6 +1,6 @@
 const routes = {
   home: "/",
-  soul: "/soul",
+  soul: "/explore-ammaeth",
 };
 
 export default routes;

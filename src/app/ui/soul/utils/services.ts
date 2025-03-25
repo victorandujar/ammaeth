@@ -1,4 +1,4 @@
-import { Service } from "@/app/modules/services/domain/Service";
+import { Service } from "@/app/modules/soul/domain/Service";
 
 const services: Service[] = [
   {
