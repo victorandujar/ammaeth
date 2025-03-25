@@ -21,10 +21,12 @@ const config: Config = {
         xxl: "var(--font-XXL)",
         xl: "var(--font-XL)",
         l: "var(--font-L)",
+        ml: "var(--font-ML)",
         m: "var(--font-M)",
         s: "var(--font-S)",
         ms: "var(--font-MS)",
         mss: "var(--font-MSS)",
+        xs: "var(--font-XS)",
       },
       boxShadow: {
         "inner-lg": "inset 0 0 15px 10px rgba(0, 0, 0, 0.3)",

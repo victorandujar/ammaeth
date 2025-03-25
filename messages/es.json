@@ -20,7 +20,7 @@
       },
       "lower_text": "cada interfaz es más que diseño: es una experiencia viva. construyo sistemas visuales que conectan intuición con funcionalidad, asegurando que cada interacción fluya de forma orgánica."
     },
-    "devlopment": {
+    "development": {
       "subtitle": "código que fluye, interfaces que responden",
       "content": {
         "first": "creación de componentes reutilizables y accesibles.",
@@ -40,5 +40,18 @@
       },
       "lower_text": "un sitio web bien diseñado es solo el principio. la optimización garantiza que la experiencia sea rápida, fluida y efectiva en cada interacción."
     }
+  },
+  "Soul": {
+    "services-title": "flujo digital: donde diseño, código y optimización convergen",
+    "footer-text": "[iniciar el viaje ] / [ explorar posibilidades ] / [ construir juntos ]",
+    "about-first": "me mueven la innovación y la armonía, el equilibrio entre funcionalidad y emoción. trabajo desde la conexión con mi esencia creadora, buscando no solo construir, sino transformar, aportar valor y dar significado a cada detalle.",
+    "about-second": "apasionado del crecimiento personal y de la creación desde el alma, encuentro en la tecnología y el diseño un espacio para traducir lo invisible en experiencias significativas. mi enfoque va más allá de lo técnico. me impulsa la curiosidad por comprender, por ir más profundo, por explorar nuevas formas de expresión que trasciendan lo convencional. cada proyecto es un reflejo de exploración y propósito, un desafío donde fusiono creatividad, lógica e intuición para dar vida a soluciones que resuenen."
+  },
+  "Essence": {
+    "title": "cuando el alma guía y el yo responde, la esencia se revela",
+    "chromatic-title": "concepto cromático",
+    "chromatic-text": "la esencia es el puente entre lo eterno y lo efímero, entre la luz y la forma.",
+    "symbology-text": "ammaëth es vista como la fuente de toda creación, una figura  maternal que nutre y guía, representando la armonía y el equilibrio del cosmos.",
+    "symbology-title": "simbología"
   }
 }

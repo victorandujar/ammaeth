@@ -3,7 +3,7 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
-import Sun from "../SunWithBg/SunWithBg";
+import HoloCyberSphere from "../SunSphere/SunSphere";
 
 export default function SolarScene() {
   return (
@@ -14,7 +14,7 @@ export default function SolarScene() {
       <ambientLight intensity={0.1} />
       <pointLight position={[10, 10, 10]} intensity={2} color="#ff4500" />
 
-      <Sun />
+      <HoloCyberSphere />
 
       <OrbitControls
         enableZoom={true}

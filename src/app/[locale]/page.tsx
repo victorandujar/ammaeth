@@ -109,13 +109,14 @@ const HomePage: React.FC = () => {
             />
             <div className="relative">
               <button
-                className="uppercase text-sm sm:text-base md:text-base"
+                className="uppercase text-sm sm:text-base md:text-base font-thin"
                 onMouseEnter={openNavigationMenu}
                 onMouseLeave={closeNavigationMenu}
                 onClick={toggleNavigationMenu}
               >
                 {t("options")}
               </button>
+
               <AnimatePresence>
                 {isNavigationMenuOpen && (
                   <div
@@ -123,16 +124,19 @@ const HomePage: React.FC = () => {
                     onMouseEnter={openNavigationMenu}
                     onMouseLeave={closeNavigationMenu}
                   >
-                    <OptionsMenu isOpen={isNavigationMenuOpen} />
+                    <OptionsMenu
+                      isOpen={isNavigationMenuOpen}
+                      closeNavigationMenu={closeNavigationMenu}
+                    />
                   </div>
                 )}
               </AnimatePresence>
             </div>
           </div>
-          <div className="absolute bottom-[22%] -left-[40%] sm:bottom-[20%] sm:-left-[10%] md:bottom-[21.5%] md:-left-[10%] lg:-left-[7.5%] -rotate-90">
+          <div className="absolute bottom-[22%] -left-[40%] sm:bottom-[20%] sm:-left-[10%] md:bottom-[34%] md:-left-[11%] 2xl:bottom-[23%] 2xl:-left-[7.5%] -rotate-90">
             <LineText text={t("resonance")} />
           </div>
-          <div className="absolute top-[30%] -right-[40%] sm:top-[25%] sm:-right-[10%] md:top-[30%] md:-right-[10%] lg:-right-[7.5%] rotate-90">
+          <div className="absolute top-[30%] -right-[40%] sm:top-[25%] sm:-right-[10%] md:top-[42%] md:-right-[11%] 2xl:-right-[7.5%] rotate-90">
             <LineText text={t("presence")} />
           </div>
           <span className="absolute bottom-2 right-4 sm:bottom-3 sm:right-4 md:bottom-5 md:right-7 flex items-center gap-2 text-sm sm:text-base md:text-sm">
