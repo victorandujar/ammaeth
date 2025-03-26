@@ -1,8 +1,13 @@
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
-const Table = () => {
+const EssenceTable: React.FC = () => {
+  const t = useTranslations("Essence");
+
   const lineVariants = (direction: string) => ({
     hidden: {
       x: direction === "left" ? "-10%" : direction === "right" ? "10%" : 0,
@@ -25,8 +30,7 @@ const Table = () => {
             <div className="flex items-start gap-4 font-light">
               <div className=" flex flex-col items-end gap-2">
                 <span className="text-right lg:w-4/5">
-                  la convergencia entre el pensamiento lógico, la intuición, y
-                  lo simbólico
+                  {t("essence-hexagram-text")}
                 </span>
                 <span className="italic">soul</span>
               </div>
@@ -38,7 +42,7 @@ const Table = () => {
                 height={25}
               />
             </div>
-            <span className=" font-ppValve">el hexagrama luminar</span>
+            <span className=" font-ppValve">{t("essence-hexagram-title")}</span>
           </div>
         </div>
 
@@ -46,10 +50,7 @@ const Table = () => {
           <div className="flex flex-col gap-2 items-end pt-5 pr-4">
             <div className="flex items-start gap-4 font-light">
               <div className=" flex flex-col items-end gap-2">
-                <span>
-                  es la danza del éter, el flujo entre lo intangible y lo
-                  tangible
-                </span>
+                <span>{t("essence-ether-text")}</span>
                 <span className="italic">essence</span>
               </div>
               <Image
@@ -60,7 +61,7 @@ const Table = () => {
                 height={25}
               />
             </div>
-            <span className=" font-ppValve">la espiral del éter</span>
+            <span className=" font-ppValve"> {t("essence-ether-title")}</span>
           </div>
         </div>
 
@@ -68,7 +69,7 @@ const Table = () => {
           <div className="flex flex-col gap-2 items-end pt-5 pr-4">
             <div className="flex items-start gap-4 font-light">
               <div className=" flex flex-col items-end gap-2">
-                <span>expansión, visión, creación desde la conciencia</span>
+                <span> {t("essence-circle-text")}</span>
                 <span className="italic">self</span>
               </div>
               <Image
@@ -79,18 +80,16 @@ const Table = () => {
                 height={25}
               />
             </div>
-            <span className=" font-ppValve">el círculo luminal</span>
+            <span className=" font-ppValve"> {t("essence-circle-title")}</span>
           </div>
         </div>
       </div>
 
-      {/* SVG de líneas */}
       <svg
         className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
         viewBox="0 -25 110 150"
         preserveAspectRatio="none"
       >
-        {/* Línea izquierda extendida */}
         <motion.line
           x1="0"
           y1="0"
@@ -104,7 +103,6 @@ const Table = () => {
           viewport={{ once: true, margin: "-100px" }}
         />
 
-        {/* Línea derecha con flecha */}
         <motion.line
           x1="100"
           y1="100"
@@ -137,7 +135,6 @@ const Table = () => {
           </marker>
         </defs>
 
-        {/* Líneas horizontales */}
         {[0, 33.33, 66.66, 100].map((y, i) => (
           <motion.line
             key={i}
@@ -154,7 +151,6 @@ const Table = () => {
           />
         ))}
 
-        {/* Líneas verticales intermedias */}
         <motion.line
           x1="33.33"
           y1="0"
@@ -208,4 +204,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default EssenceTable;

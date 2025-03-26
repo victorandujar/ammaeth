@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Table from "../EssencTable/EssenceTable";
+import EssenceTable from "../EssencTable/EssenceTable";
 import { useTranslations } from "next-intl";
 
 const EssenceChromatic: React.FC = () => {
@@ -33,7 +33,7 @@ const EssenceChromatic: React.FC = () => {
         </section>
       </section>
       <section className="w-full flex items-end">
-        <Table />
+        <EssenceTable />
         <div className="flex flex-col gap-2 w-1/5 items-end pb-20">
           <span className="text-xs font-thin tracking-wider text-right leading-5">
             {t("symbology-text")}

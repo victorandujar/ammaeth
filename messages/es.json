@@ -39,7 +39,8 @@
         "fourth": "aseguro accesibilidad con prácticas wcag y validación UX."
       },
       "lower_text": "un sitio web bien diseñado es solo el principio. la optimización garantiza que la experiencia sea rápida, fluida y efectiva en cada interacción."
-    }
+    },
+    "contact": "contactar"
   },
   "Soul": {
     "services-title": "flujo digital: donde diseño, código y optimización convergen",
@@ -52,6 +53,12 @@
     "chromatic-title": "concepto cromático",
     "chromatic-text": "la esencia es el puente entre lo eterno y lo efímero, entre la luz y la forma.",
     "symbology-text": "ammaëth es vista como la fuente de toda creación, una figura  maternal que nutre y guía, representando la armonía y el equilibrio del cosmos.",
-    "symbology-title": "simbología"
+    "symbology-title": "simbología",
+    "essence-hexagram-text": "la convergencia entre el pensamiento lógico, la intuición, y lo simbólico",
+    "essence-hexagram-title": "el hexagrama luminar",
+    "essence-ether-text": "es la danza del éter, el flujo entre lo intangible y lo tangible",
+    "essence-ether-title": "la espiral del éter",
+    "essence-circle-text": "expansión, visión, creación desde la conciencia",
+    "essence-circle-title": "el circulo luminal"
   }
 }
