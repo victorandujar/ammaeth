@@ -4,6 +4,7 @@ import { Service } from "@/app/modules/soul/domain/Service";
 import { useTranslations } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 interface Props {
   service: Service;
@@ -52,9 +53,13 @@ const ServiceCard: React.FC<Props> = ({ service }) => {
           </li>
         ))}
       </ul>
-      <button className="bg-gradient-to-r from-tertiary/80 to-transparent px-4 py-2 w-56 rounded-3xl text-sm text-left">
-        contactar
-      </button>
+      <Link
+        href="mailto:victorandujarmurcia@gmail.com"
+        className="bg-gradient-to-r from-tertiary/80 to-transparent px-4 py-2 w-56 rounded-3xl text-sm text-left"
+        target="_blank"
+      >
+        {t("contact")}
+      </Link>
       <span className="text-right w-4/5">{t(service.lower_text)}</span>
     </motion.article>
   );
