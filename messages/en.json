@@ -39,7 +39,8 @@
         "fourth": "ensure accessibility with WCAG practices and UX validation."
       },
       "lower_text": "a well-designed website is just the beginning. optimization ensures the experience is fast, smooth, and effective in every interaction."
-    }
+    },
+    "contact": "contact me"
   },
   "Soul": {
     "services-title": "digital flow: where design, code, and optimization converge",
@@ -48,10 +49,16 @@
     "about-second": "passionate about personal growth and creation from the soul, I find in technology and design a space to translate the invisible into meaningful experiences. my approach goes beyond the technical. I am fueled by a curiosity to understand, to delve deeper, to explore new forms of expression that transcend the conventional. each project is a reflection of exploration and purpose, a challenge where I blend creativity, logic, and intuition to bring solutions to life that resonate."
   },
   "Essence": {
-    "title": "when the soul guides and the self responds, the essence is revealed",
+    "title": "When the soul guides and the self responds, the essence is revealed",
     "chromatic-title": "chromatic concept",
     "chromatic-text": "the essence is the bridge between the eternal and the ephemeral, between light and form.",
-    "symbology-text": "ammaëth is seen as the source of all creation, a maternal figure that nurtures and guides, representing the harmony and balance of the cosmos.",
-    "symbology-title": "symbology"
+    "symbology-text": "Ammaëth is seen as the source of all creation, a maternal figure who nurtures and guides, representing the harmony and balance of the cosmos.",
+    "symbology-title": "symbology",
+    "essence-hexagram-text": "the convergence between logical thought, intuition, and the symbolic",
+    "essence-hexagram-title": "the luminary hexagram",
+    "essence-ether-text": "it is the dance of the ether, the flow between the intangible and the tangible",
+    "essence-ether-title": "the spiral of the ether",
+    "essence-circle-text": "expansion, vision, creation from consciousness",
+    "essence-circle-title": "the luminal circle"
   }
 }
