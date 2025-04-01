@@ -18,6 +18,8 @@ import LineText from "../ui/shared/components/LineText/LineText";
 import useUi from "../ui/shared/hooks/useUi";
 import routes from "../ui/shared/utils/routes";
 import Image from "next/image";
+import StoreLink from "../ui/shared/components/StoreLink/StoreLink";
+import UFOScene from "../ui/shared/components/Ufo/Ufo";
 
 const SCROLL_STEP = 0.05;
 const ANIMATION_DURATION = 1200;
@@ -98,7 +100,7 @@ const HomePage: React.FC = () => {
       className="relative h-screen overflow-y-auto snap-y snap-mandatory"
       onClick={handleOutsideClick}
     >
-      <main className="flex flex-col justify-center items-center h-screen snap-start">
+      <main className="flex flex-col gap-2 justify-center items-center h-screen snap-start">
         <section className="border-white/30 border-[0.5px] h-[90%] w-[90%] sm:h-[85%] sm:w-[85%] md:h-[80%] md:w-[80%] rounded-3xl bg-gradient-to-b from-background to-white/20 relative shadow-inner-lg overflow-hidden">
           <div className="pt-4 px-4 sm:pt-6 sm:px-6 md:pt-7 md:px-8 w-full flex justify-between absolute font-thin z-10">
             <Image
@@ -145,6 +147,9 @@ const HomePage: React.FC = () => {
           </span>
           <GalaxyScene />
         </section>
+        <div className="self-end px-48 pt-2">
+          <StoreLink />
+        </div>
       </main>
     </div>
   );

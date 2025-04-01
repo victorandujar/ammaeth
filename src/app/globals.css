@@ -50,6 +50,7 @@
   --secondary-color: #0057ff;
   --tertiary-color: #ffd700;
   --background-color: #1b1b1b;
+  --store-card: #d9d9d9;
   --light: #fff;
   --font-XXL: 3rem;
   --font-XL: 2rem;
@@ -79,6 +80,7 @@ body {
   margin: 0;
   min-height: 100vh;
   font-size: 16px;
+  overscroll-behavior-x: none;
 }
 
 h1,
