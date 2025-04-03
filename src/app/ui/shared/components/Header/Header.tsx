@@ -6,10 +6,14 @@ import routes from "../../utils/routes";
 import Image from "next/image";
 import { useAppSelector } from "@/app/store/hooks";
 import { useState, useEffect } from "react";
+import StoreLink from "../StoreLink/StoreLink";
+import { useParams, usePathname } from "next/navigation";
 
 const Header: React.FC = () => {
   const { headerColor, headerText } = useAppSelector((state) => state.ui);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const path = usePathname();
+  const { locale } = useParams();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -32,6 +36,7 @@ const Header: React.FC = () => {
         </Link>
         <LineText text={headerText} color={headerColor} />
       </div>
+      {path !== `/${locale}${routes.store}` && <StoreLink />}
       <div className="hidden md:flex gap-2 font-thin text-s">
         <span>Barcelona</span>
         <span>

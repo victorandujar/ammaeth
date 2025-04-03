@@ -5,12 +5,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background-color)",
+        background: "#1b1b1b",
         foreground: "var(--foreground)",
         mainColor: "#888aff",
         primary: "#00FF8B",
         secondary: "#FFD700",
         tertiary: "#0057FF",
+        storeCard: "#d9d9d9",
       },
       fontFamily: {
         ppModelPlastic: "var(--font-ppmodel)",

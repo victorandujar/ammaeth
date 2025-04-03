@@ -8,7 +8,7 @@ const HoloCyberSphere = () => {
   const sphereRef = useRef<THREE.Mesh>(null!);
   const ring1Ref = useRef<THREE.Mesh>(null!);
   const ring2Ref = useRef<THREE.Mesh>(null!);
-  const ring3Ref = useRef<THREE.Mesh>(null!); // Nueva referencia para el tercer anillo
+  const ring3Ref = useRef<THREE.Mesh>(null!);
 
   const vertexShader = `
     varying vec2 vUv;
