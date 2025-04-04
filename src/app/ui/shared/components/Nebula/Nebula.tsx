@@ -9,7 +9,6 @@ const Nebula: React.FC = () => {
   useEffect(() => {
     if (!canvasRef.current) return;
 
-    // Configuración de Three.js
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -23,7 +22,6 @@ const Nebula: React.FC = () => {
     });
     renderer.setSize(window.innerWidth, 600);
 
-    // Textura circular para partículas (bolitas)
     const createParticleTexture = () => {
       const size = 32;
       const canvas = document.createElement("canvas");
@@ -45,7 +43,6 @@ const Nebula: React.FC = () => {
       return new THREE.CanvasTexture(canvas);
     };
 
-    // Capa 1: Partículas principales (bolitas)
     const particleCount = 15000;
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
@@ -61,9 +58,9 @@ const Nebula: React.FC = () => {
 
       const distance = Math.sqrt(x * x + y * y + z * z);
       const intensity = Math.min(4, 300 / (distance + 1));
-      colors[i * 3] = 0.0588 * intensity; // #0ff8b8 R
-      colors[i * 3 + 1] = 0.973 * intensity; // #0ff8b8 G
-      colors[i * 3 + 2] = 0.722 * intensity; // #0ff8b8 B
+      colors[i * 3] = 0.0588 * intensity;
+      colors[i * 3 + 1] = 0.973 * intensity;
+      colors[i * 3 + 2] = 0.722 * intensity;
       sizes[i] = Math.random() * 8 + 4;
     });
 
@@ -84,7 +81,6 @@ const Nebula: React.FC = () => {
     const particleSystem = new THREE.Points(particles, particleMaterial);
     scene.add(particleSystem);
 
-    // Capa 2: Partículas de humo
     const smokeCount = 15000;
     const smokePositions = new Float32Array(smokeCount * 3);
     const smokeColors = new Float32Array(smokeCount * 3);
@@ -100,9 +96,9 @@ const Nebula: React.FC = () => {
 
       const distance = Math.sqrt(x * x + y * y + z * z);
       const intensity = Math.min(1.5, 250 / (distance + 1));
-      smokeColors[i * 3] = 0.0588 * intensity; // #0ff8b8 R
-      smokeColors[i * 3 + 1] = 0.973 * intensity; // #0ff8b8 G
-      smokeColors[i * 3 + 2] = 0.722 * intensity; // #0ff8b8 B
+      smokeColors[i * 3] = 0.0588 * intensity;
+      smokeColors[i * 3 + 1] = 0.973 * intensity;
+      smokeColors[i * 3 + 2] = 0.722 * intensity;
       smokeSizes[i] = Math.random() * 12 + 6;
     });
 
@@ -134,20 +130,17 @@ const Nebula: React.FC = () => {
 
     camera.position.z = 500;
 
-    // Animación
     const animate = () => {
       requestAnimationFrame(animate);
       particleSystem.rotation.y += 0.0003;
       smokeSystem.rotation.y += 0.0002;
 
-      // Animación de partículas principales
       Array.from({ length: particleCount }, (_, i) => {
         positions[i * 3 + 1] += Math.sin(Date.now() * 0.0005 + i) * 0.02;
         positions[i * 3] += Math.cos(Date.now() * 0.0003 + i) * 0.01;
       });
       particles.attributes.position.needsUpdate = true;
 
-      // Animación de humo
       Array.from({ length: smokeCount }, (_, i) => {
         smokePositions[i * 3 + 1] +=
           Math.sin(Date.now() * 0.0002 + i * 0.1) * 0.03;
@@ -162,7 +155,6 @@ const Nebula: React.FC = () => {
     };
     animate();
 
-    // Manejo de resize
     const handleResize = () => {
       camera.aspect = window.innerWidth / 600;
       camera.updateProjectionMatrix();

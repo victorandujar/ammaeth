@@ -48,9 +48,9 @@ const SoulPage: React.FC = () => {
     target: textRef,
     offset: ["start end", "end center"],
   });
-  const y = useTransform(textScrollProgress, [0, 1], [150, 0]); // Reduced for mobile
-  const scale = useTransform(textScrollProgress, [0, 1], [0.5, 1]); // Adjusted for mobile
-  const rotateX = useTransform(textScrollProgress, [0, 1], [45, 0]); // Reduced for mobile
+  const y = useTransform(textScrollProgress, [0, 1], [150, 0]);
+  const scale = useTransform(textScrollProgress, [0, 1], [0.5, 1]);
+  const rotateX = useTransform(textScrollProgress, [0, 1], [45, 0]);
   const textOpacity = useTransform(textScrollProgress, [0, 1], [0, 1]);
 
   useEffect(() => {

@@ -6,7 +6,7 @@ import keywords from "@/app/ui/shared/components/KeywordsCarousel/utils/keywords
 import LineText from "@/app/ui/shared/components/LineText/LineText";
 import colors from "@/app/ui/shared/utils/colors";
 import Image from "next/image";
-import Planet from "../../../shared/components/PlanetScene/PlanetScene";
+import HoloSphere from "../../../shared/components/HoloSphere/HoloSphere";
 import { useTranslations } from "next-intl";
 
 const SoulAboutSection: React.FC = () => {
@@ -16,7 +16,7 @@ const SoulAboutSection: React.FC = () => {
     <section className="flex flex-col gap-8 sm:flex-row sm:justify-between w-full h-full">
       <article className="w-full flex flex-col items-center gap-5 font-thin sm:w-[31%] sm:items-end">
         <section className="bg-gradient-to-b from-transparent to-white/20 backdrop-blur-md rounded-br-lg rounded-bl-lg shadow-2xl shadow-zinc-950 h-[200px] w-full sm:h-[340px] 2xl:h-[650px]">
-          <Planet />
+          <HoloSphere />
         </section>
         <span className="text-s text-center px-4 sm:text-right sm:w-[90%] 2xl:w-3/4">
           {t("about-first")}

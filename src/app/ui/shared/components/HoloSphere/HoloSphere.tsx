@@ -5,7 +5,7 @@ import { OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
 import HoloCyberSphere from "../SunSphere/SunSphere";
 
-export default function SolarScene() {
+export default function HoloSphere() {
   return (
     <Canvas
       camera={{ position: [0, 0, 5], fov: 55 }}
