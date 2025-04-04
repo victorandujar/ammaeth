@@ -69,7 +69,6 @@ const Store: React.FC = () => {
       className="relative w-full overflow-x-hidden bg-background"
       style={{ height: dynamicHeight }}
     >
-      {/* Fixed header section */}
       <section className="fixed top-20 z-[50] flex w-4/5 items-end justify-between bg-background/80 px-5 py-10 backdrop-blur-sm">
         <div className="flex items-start gap-4">
           <h2 className="text-7xl">STORAGE</h2>
@@ -83,7 +82,6 @@ const Store: React.FC = () => {
         </div>
       </section>
 
-      {/* Progress bar */}
       <div className="fixed top-64 z-[999] h-1 bg-gray-800 mx-auto w-4/5 left-1/2 -translate-x-1/2">
         <motion.div
           className="h-full bg-gradient-to-r from-tertiary via-secondary to-primary"
@@ -91,23 +89,21 @@ const Store: React.FC = () => {
         />
       </div>
 
-      {/* StoreCard container */}
       <motion.div
         ref={contentRef}
         className="fixed left-0 top-1/3 flex -translate-y-1/2 gap-6 px-5 z-[100]"
         style={{ x }}
       >
-        {Array.from({ length: 20 }).map((_, index) => (
-          <StoreCard key={index} />
+        {products.map((product, index) => (
+          <StoreCard product={product} key={index} />
         ))}
       </motion.div>
 
-      {/* Nebula positioned below cards, fixed */}
       <div
         className="fixed left-0 w-full z-[0]"
         style={{
-          top: "calc(33.33% + 50px)", // Adjust based on card height
-          height: "100vh", // Full height below cards
+          top: "calc(33.33% + 50px)",
+          height: "100vh",
         }}
       >
         <NebulaScene />

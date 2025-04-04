@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MdOutlineArrowOutward } from "react-icons/md";
-import HoloAthomScene from "../HoloAthom/HolotAthom";
+import HoloAthomScene from "../HoloAthom/HoloAthom";
 import routes from "../../utils/routes";
 
 const StoreLink: React.FC = () => {

@@ -325,7 +325,7 @@ const HoloCart = () => {
 const HoloCartScene: React.FC = () => {
   return (
     <Canvas
-      camera={{ position: [0, 0.5, 3], fov: 30 }}
+      camera={{ position: [0, 0.5, 4], fov: 30 }}
       style={{ width: "100%", height: "100%" }}
     >
       <ambientLight intensity={0.5} />

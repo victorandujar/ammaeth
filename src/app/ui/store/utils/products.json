@@ -1,1 +1,94 @@
-[]
+[
+  {
+    "id": "cyber-holo-sphere",
+    "title": "Cyber Holo Sphere",
+    "price": "€12.99",
+    "image": "",
+    "features": ["3D visual", "rotating effect", "interactive", "modular"],
+    "technologies": ["react", "three.js", "tailwind.css", "typescript"],
+    "description": "The Cyber Holo Sphere is a futuristic 3D holographic orb with a smooth rotational motion and interactive depth. Designed to elevate the visual experience of any interface, it’s perfect for dashboards, AI-driven platforms, or any digital product seeking a tech-forward, immersive look. Use it to highlight user profiles, data stats, or as a centerpiece element in a landing page.",
+    "buyUrl": "https://ammavaroo-store.lemonsqueezy.com/buy/ecc5757b-4cf7-4fda-bd14-af4b51708307",
+    "index": 1,
+    "component": "HoloSphere"
+  },
+  {
+    "id": "dynamic-rotating-meteor",
+    "title": "Dynamic Rotating Meteor",
+    "price": "€2.99",
+    "image": "",
+    "features": ["rotating", "looped animation", "light effects"],
+    "technologies": ["react", "framer-motion", "tailwind.css"],
+    "description": "A sleek, orbiting meteor animation designed to bring life and motion to your UI. With its continuous loop and subtle glow, it's ideal as a decorative background element, loading animation, or transition visual. Add it to creative portfolios, tech blogs, or sci-fi inspired pages to spark curiosity and visual intrigue.",
+    "buyUrl": "https://ammavaroo-store.lemonsqueezy.com/buy/e66f9c7f-020e-4792-a324-d8cc16435d9e",
+    "index": 2,
+    "component": "MeteoriteScene"
+  },
+  {
+    "id": "dynamic-rotating-nebula",
+    "title": "Dynamic Rotating Nebula",
+    "price": "€2.99",
+    "image": "",
+    "features": ["animated", "space style", "looped interaction"],
+    "technologies": ["react", "framer-motion", "tailwind.css"],
+    "description": "A glowing nebula with subtle rotating motion and a galactic feel. Perfect for projects that want to convey mystery, creativity, or cosmic aesthetics. It fits beautifully in space-themed portfolios, music artist websites, and futuristic interfaces. Its lightweight animation adds depth without distraction.",
+    "buyUrl": "https://ammavaroo-store.lemonsqueezy.com/buy/c3da065a-f514-406e-8c5c-b11a51405295",
+    "index": 3,
+    "component": "Nebula"
+  },
+  {
+    "id": "holo-athom",
+    "title": "Holo Athom",
+    "price": "€2.99",
+    "image": "",
+    "features": ["3D atom", "animated", "minimalist"],
+    "technologies": ["react", "three.js", "tailwind.css"],
+    "description": "A minimal and elegant 3D atom with smooth rotation, designed to symbolize intelligence, energy, and innovation. Ideal for science-related platforms, education landing pages, or tech startups. Its clean, looping animation helps establish a modern and intelligent brand presence.",
+    "buyUrl": "https://ammavaroo-store.lemonsqueezy.com/buy/c6014b19-9e13-4cbb-afdd-5d6d55d1a916",
+    "index": 4,
+    "component": "HoloAthom"
+  },
+  {
+    "id": "holographic-shopping-cart",
+    "title": "Holographic Rotating Shopping Cart",
+    "price": "€5.99",
+    "image": "",
+    "features": ["interactive", "3D cart", "ecommerce ready"],
+    "technologies": ["react", "framer-motion", "tailwind.css"],
+    "description": "A 3D shopping cart icon with a subtle holographic effect. Designed to enhance any ecommerce platform with a futuristic touch. Can be used as a checkout icon, a loading animation during cart actions, or even as a hero visual on a landing page. Stand out by combining function with form.",
+    "buyUrl": "https://ammavaroo-store.lemonsqueezy.com/buy/5ed05b70-69b1-4166-b1fb-da29658eb543",
+    "index": 5,
+    "component": "HoloCart"
+  },
+  {
+    "id": "dashboard-template-pro",
+    "title": "Modern Dashboard Template Pro: The Ultimate Kit",
+    "price": "€49.99",
+    "image": "/images/store-example.jpg",
+    "features": [
+      "3 pages",
+      "20 components",
+      "1 font installed",
+      "search functionality",
+      "router functional",
+      "pagination",
+      "modularized"
+    ],
+    "technologies": ["react", "next.js", "tailwind.css", "typescript"],
+    "description": "An all-in-one professional dashboard template crafted for developers, startups, and agencies. It includes 3 ready-made pages, 20+ reusable components, a complete routing system, pagination, and dynamic tables. Easily customizable and built for scalability, it's perfect for building SaaS platforms, admin panels, or internal tools in record time.",
+    "buyUrl": "https://ammavaroo-store.lemonsqueezy.com/buy/10390d3b-87a2-4cc3-9a85-c5770c37a0e2",
+    "index": 6,
+    "component": ""
+  },
+  {
+    "id": "stellar-galaxy-3d",
+    "title": "Stellar Galaxy 3D Component",
+    "price": "€20.99",
+    "image": "",
+    "features": ["galactic motion", "3D stars", "glow effect"],
+    "technologies": ["react", "three.js", "tailwind.css"],
+    "description": "Bring the cosmos to your interface with this immersive 3D galaxy component. Simulating a glowing spiral of stars, it's ideal for interactive storytelling, music or NFT websites, or any design that needs a sense of wonder. Fully responsive and optimized for performance, it transforms static pages into magical experiences.",
+    "buyUrl": "https://ammavaroo-store.lemonsqueezy.com/buy/daf8cd8f-c7ed-4142-b27b-86d47797bef6",
+    "index": 7,
+    "component": "GalaxyScene"
+  }
+]
